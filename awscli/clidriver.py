@@ -45,7 +45,11 @@ LOG_FORMAT = (
 
 def main():
     driver = create_clidriver()
-    return driver.main()
+    try:
+        return driver.main()
+    except KeyboardInterrupt as e:
+        print("\nUser Abort.")
+        return 0
 
 
 def create_clidriver():
